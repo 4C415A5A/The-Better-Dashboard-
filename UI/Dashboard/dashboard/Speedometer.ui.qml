@@ -8,6 +8,7 @@ Check out https://doc.qt.io/qtcreator/creator-quick-ui-forms.html for details on
 */
 import QtQuick
 import QtQuick.Controls
+
 Item {
     id: root
     width: 350
@@ -37,6 +38,17 @@ Item {
             }
             orientation: Gradient.Vertical
         }
+
+        Image {
+                id: ramsLogo
+                visible: DashboardController.locked
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                source: "../images/CSU-Ram-Rev.png"
+                mipmap: true
+                width: 350
+                height: 350
+            }
 
         Text {
             id: speed
