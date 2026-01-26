@@ -12,6 +12,14 @@ Item {
     id: root
     width: 350
     height: 350
+    property int speed: 0
+
+       Connections {
+           target: dashboardController
+           onLeftRpmChanged: {
+               root.speed = rpm; // value from MotorDataProcessor via DashboardController
+           }
+       }
     Rectangle {
         id: speedometer
         width: 350
@@ -36,7 +44,8 @@ Item {
             y: 142
             width: 67
             color: "#eaeaea"
-            text: qsTr("0")
+            //text: qsTr("0")
+            text: qsTr("%1").arg(root.speed)
             font.pixelSize: 50
             horizontalAlignment: Text.AlignHCenter
         }
@@ -46,7 +55,7 @@ Item {
             x: 154
             y: 225
             color: "#eaeaea"
-            text: qsTr("mph")
+            text: qsTr("rpm")
             font.pixelSize: 24
         }
     }
